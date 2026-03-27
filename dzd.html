@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Informācijas daudzuma mērvienības</title>
+
+   
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Informācijas daudzuma mērvienības</h2>
+
+    <p>Ievadi savu dzimšanas datumu:</p>
+    <input type="date" id="birthdate">
+
+    <button onclick="calculateDays()">Aprēķināt</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+function calculateDays() {
+    let input = document.getElementById("birthdate").value;
+
+    if (!input) {
+        alert("Izvēlies datumu!");
+        return;
+    }
+
+    let today = new Date();
+    let birthDate = new Date(input);
+
+    // nākamā dzimšanas diena
+    let nextBirthday = new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+
+    if (nextBirthday < today) {
+        nextBirthday.setFullYear(today.getFullYear() + 1);
+    }
+
+    let diff = nextBirthday - today;
+    let days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+
+    document.getElementById("result").innerText =
+        "Līdz nākamajai dzimšanas dienai: " + days + " dienas 🎂";
+}
+</script>
+
+</body>
+</html>
+
