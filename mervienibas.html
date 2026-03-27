@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Aprēķins</title>
+    <style>
+        .box {
+            border: 2px solid #4a6fa5;
+            padding: 10px;
+            width: 410px;
+        }
+        body {
+            background-image: url("images/cipari.jpg");
+        }
+        form  {
+            ;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <p>
+         <br>
+    <form>
+        <div>  <input type="text" oninput="rekinat() name="baiti"> GB=</div>
+    </p>
+
+  
+    <div>
+    <input type="button" id="mega" value="Izteikt megaibaitos" onclick="mega.value=baiti.value*1000"><input name="mega">MB
+    </div><br>
+    <div>
+    <input type="button" id="rezultats" value="Izteikt mibibaitos" onclick="mibi.value=baiti.value*953.67"><input name="mibi">
+         MiB
+    </div> 
+   
+       
+    
+    </form>
+</div>
+
+<script>
+function rekinat() {
+    let sek = Number(document.getElementById("sekundes").value);
+    let atrums = 25; // Mbps
+
+    if (!sek) {
+        document.getElementById("rezultats").value = "";
+        return;
+    }
+
+    // Mbps → bit/s → byte/s
+    let biti = atrums * 1000000 * sek;
+    let baiti = biti / 8;
+
+    let vieniba = document.querySelector('input[name="vieniba"]:checked').value;
+    let rezultats;
+
+    if (vieniba === "KB") {
+        rezultats = baiti / 1000;
+    } else {
+        rezultats = baiti / 1024;
+    }
+
+    document.getElementById("rezultats").value = rezultats.toFixed(2);
+}
+</script>
+
+</body>
+</html>
