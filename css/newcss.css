@@ -1,0 +1,177 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightblue;
+    color: #333;
+    line-height: 1.6;
+
+    /* Attēls */
+    background-image: url("public_html/images/bg.jpg");
+
+    /* Atkārto horizontāli un vertikāli */
+    background-repeat: repeat;
+    
+    background-position: top left;
+    
+    background-size: auto;
+}
+
+/* Header */
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Virsraksts */
+header h1 {
+    margin: 0;
+    padding: 20px;
+    background-color: #1a73e8;
+    color: white;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Navigācija */
+nav.horizontal-nav {
+    width: 100%;
+    background-color: #333;
+}
+
+nav.horizontal-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav.horizontal-nav ul li {
+    margin: 0 10px;
+}
+
+nav.horizontal-nav ul li a {
+    display: block;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+}
+
+nav.horizontal-nav ul li a:hover {
+    background-color: #111;
+}
+
+/* Saturs */
+main {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Timeline stils */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #ddd;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-container {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+}
+
+.left { left: -40%; }
+.right { left: 40%; }
+
+.left::before, .right::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border: medium solid white;
+}
+
+.left::before {
+    right: -10px;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+.right::before {
+    left: -10px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+.content {
+    padding: 20px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 { color: #1a73e8; }
+
+section {
+    background: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section img { margin-top: 10px; }
+
+@media screen and (max-width: 800px) {
+    .timeline-container {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        left: 0 !important;
+    }
+}
+/* Vertikālā izvēlne */
+nav.vertical-nav {
+    width: 200px;
+    position: fixed;
+    top: 140px; /* zem header + horizontal nav */
+    left: 0;
+    background-color: #006699;
+    padding-top: 20px;
+    height: 100%;
+}
+
+nav.vertical-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav.vertical-nav ul li a {
+    display: block;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+}
+
+nav.vertical-nav ul li a:hover {
+    background-color: #004466;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Aprēķins</title>
+    
+    <style>
+        form {
+            background-color:rgb(220,220,0);
+            width: 400px;
+            padding: 20px;
+            font-size: 20px;
+        }
+        body {
+            background-image: url("images/cipari.jpg");
+        }
+    </style>
+</head>
+<body>
+    <h1>Informācijas daudzuma mērvienības</h1>
+<div class="box">
+    <form>
+        <div>
+            <input type="text" id="baiti"> GB =
+        </div>
+
+        <br>
+
+        <div>
+            <input type="button" value="Izteikt megabaitos" onclick="uzMB()">
+            <input type="text" id="mega"> MB
+        </div>
+
+        <br>
+
+        <div>
+            <input type="button" value="Izteikt mibibaitos" onclick="uzMiB()">
+            <input type="text" id="mibi"> MiB
+        </div>
+
+    </form>
+</div>
+
+<script>
+function uzMB() {
+    let gb = parseFloat(document.getElementById("baiti").value);
+
+    if (isNaN(gb)) return;
+
+    // 1 GB = 1000 MB
+    document.getElementById("mega").value = (gb * 1000).toFixed(2);
+}
+
+function uzMiB() {
+    let gb = parseFloat(document.getElementById("baiti").value);
+
+    if (isNaN(gb)) return;
+
+    // 1 GB ≈ 953.67 MiB
+    document.getElementById("mibi").value = (gb * 953.67).toFixed(2);
+}
+</script>
+
+</body>
+</html>
